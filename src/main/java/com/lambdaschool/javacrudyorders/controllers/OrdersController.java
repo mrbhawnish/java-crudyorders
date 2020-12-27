@@ -49,7 +49,8 @@ public class OrdersController
     }
 
     @PutMapping(value = "/order/{ordnum}", consumes = {"application/json"}, produces = {"application/json"})
-    public ResponseEntity<?> replaceOrderById(@PathVariable  long ordnum, @Valid @RequestBody Order updateOrder)
+    public ResponseEntity<?> replaceOrderById(@PathVariable  long ordnum,
+                                              @Valid @RequestBody Order updateOrder)
     {
         updateOrder.setOrdnum(ordnum);
        updateOrder = ordersService.save(updateOrder);
